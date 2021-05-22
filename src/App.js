@@ -16,6 +16,8 @@ import awsmobile from "./services/aws-amplify/aws-exports";
 import Logout from "./components/Logout/Logout";
 import { Auth } from "aws-amplify";
 import SearchImage from "./components/SearchImage/SearchImage";
+import AddTag from "./components/AddTag/AddTag";
+import DeleteImage from "./components/DeleteImage/DeleteImage";
 // import { withAuthenticator } from "@aws-amplify/ui-react";
 
 Amplify.configure(awsmobile);
@@ -42,6 +44,8 @@ function App() {
             <Switch>
               <Route path="/home" component={Home} />
               <Route path="/search" component={SearchImage} />
+              <Route path="/addtag" component={AddTag} />
+              <Route path="/deleteimage" component={DeleteImage} />
               <Route path="/logout" component={Logout} />
               <Redirect from="/" exact to="/home" />
               <Redirect to="/home" />
