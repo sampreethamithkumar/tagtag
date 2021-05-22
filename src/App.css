@@ -36,3 +36,42 @@
     transform: rotate(360deg);
   }
 }
+
+main {
+  height: 70vh;
+  margin-top: 50px;
+}
+button {
+  margin-top: 20px;
+}
+
+/* Text align  */
+.text--align-center {
+  text-align: center;
+}
+
+/* Home Page Design */
+.home-page {
+  text-align: center;
+}
+
+/* File Upload and preview */
+.custom-file-upload {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.file-preview {
+  margin: 0 10px;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+img {
+  max-width: 450px;
+  margin: 15px;
+}
