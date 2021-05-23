@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 import { updateTag } from "../../services/addTag";
 
 const AddTag = () => {
@@ -9,12 +10,9 @@ const AddTag = () => {
   const submit = async (event) => {
     event.preventDefault();
     setArrayTag(tag.split(";"));
-    try {
-      const response = await updateTag(url, arrayTag);
-      console.log(response);
-    } catch (e) {
-      console.log(e);
-    }
+    updateTag(url, arrayTag)
+      .then(() => toast.success("Tag Added"))
+      .catch((e) => toast.error(e));
   };
 
   return (

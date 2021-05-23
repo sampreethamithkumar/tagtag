@@ -36,7 +36,7 @@ const Login = () => {
             Password
           </label>
           <input
-            type="email"
+            type="password"
             class="form-control"
             id="password"
             value={password}

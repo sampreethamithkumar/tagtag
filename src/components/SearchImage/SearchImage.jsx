@@ -6,6 +6,8 @@ const SearchImage = () => {
   const [param2, setparam2] = useState("");
   const [param3, setparam3] = useState("");
   const [param4, setparam4] = useState("");
+  const [url, setUrl] = useState([]);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const submit = async (event) => {
     event.preventDefault();
@@ -13,7 +15,11 @@ const SearchImage = () => {
     if (param1 === "" && param2 === "" && param3 === "" && param4 == "")
       response = await getImages();
     else response = await getImageURLByTag(param1, param2, param3, param4);
-    console.log(response);
+
+    const { data } = response;
+    setUrl(data.split(","));
+    console.log(url);
+    setIsSubmitted(true);
   };
 
   return (
@@ -72,6 +78,16 @@ const SearchImage = () => {
           </button>
         </div>
       </form>
+      {isSubmitted && (
+        <div>
+          <h4>Image Urls</h4>
+          <ul>
+            {url.map((data) => (
+              <li key={data}>{data}</li>
+            ))}
+          </ul>
+        </div>
+      )}
     </React.Fragment>
   );
 };

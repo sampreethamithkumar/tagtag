@@ -6,6 +6,9 @@ import {
   Switch,
   Redirect,
 } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import { Auth } from "aws-amplify";
+import "react-toastify/dist/ReactToastify.css";
 import Navigation from "./components/NavigationBar/Navigation";
 import Footer from "./components/Footer/Footer";
 import Login from "./components/Login/Login";
@@ -14,7 +17,6 @@ import Home from "./components/Home/Home";
 import Amplify from "@aws-amplify/core";
 import awsmobile from "./services/aws-amplify/aws-exports";
 import Logout from "./components/Logout/Logout";
-import { Auth } from "aws-amplify";
 import SearchImage from "./components/SearchImage/SearchImage";
 import AddTag from "./components/AddTag/AddTag";
 import DeleteImage from "./components/DeleteImage/DeleteImage";
@@ -39,6 +41,7 @@ function App() {
     <React.Fragment>
       <Router>
         <Navigation />
+        <ToastContainer />
         <main className="container-md">
           {Object.entries(currentUser).length !== 0 && (
             <Switch>

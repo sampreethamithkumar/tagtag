@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 import { deleteImage } from "../../services/deleteimage";
 
 const DeleteImage = () => {
@@ -9,9 +10,9 @@ const DeleteImage = () => {
 
     try {
       const response = await deleteImage(url);
-      console.log(response);
+      toast.success("Image Deleted");
     } catch (e) {
-      console.log(e);
+      toast.error("Unexpected Error occured deleting an image");
     }
   };
 
