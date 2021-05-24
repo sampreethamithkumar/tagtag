@@ -19,32 +19,32 @@ const AddTag = () => {
     <React.Fragment>
       <h1>Add Tag to Image</h1>
       <form onSubmit={submit}>
-        <div class="mb-3">
-          <label for="url" class="form-label">
+        <div className="mb-3">
+          <label htmlFor="url" className="form-label">
             URL
           </label>
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             id="url"
             value={url}
             onChange={(event) => seturl(event.target.value)}
           />
         </div>
-        <div class="mb-3">
-          <label for="tags" class="form-label">
+        <div className="mb-3">
+          <label htmlFor="tags" className="form-label">
             Add Tag
           </label>
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             id="tags"
             value={tag}
             onChange={(event) => setTag(event.target.value)}
           />
         </div>
 
-        <button type="submit" class="btn btn-primary">
+        <button type="submit" className="btn btn-primary">
           Submit
         </button>
       </form>

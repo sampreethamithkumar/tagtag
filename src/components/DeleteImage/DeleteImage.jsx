@@ -9,7 +9,7 @@ const DeleteImage = () => {
     event.preventDefault();
 
     try {
-      const response = await deleteImage(url);
+      await deleteImage(url);
       toast.success("Image Deleted");
     } catch (e) {
       toast.error("Unexpected Error occured deleting an image");
@@ -20,19 +20,19 @@ const DeleteImage = () => {
     <React.Fragment>
       <h1>Delete Image</h1>
       <form onSubmit={submit}>
-        <div class="mb-3">
-          <label for="url" class="form-label">
+        <div className="mb-3">
+          <label htmlFor="url" className="form-label">
             URL
           </label>
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             id="url"
             value={url}
             onChange={(event) => seturl(event.target.value)}
           />
         </div>
-        <button type="submit" class="btn btn-primary">
+        <button type="submit" className="btn btn-primary">
           Submit
         </button>
       </form>

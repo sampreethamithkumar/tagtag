@@ -9,7 +9,9 @@ const Login = () => {
   const submit = async (event) => {
     event.preventDefault();
     try {
-      await signInUser(email, password);
+      const response = await signInUser(email, password);
+      const { jwtToken } = response.signInUserSession.idToken;
+      localStorage.setItem("accessToken", jwtToken);
       window.location = "/home";
     } catch (e) {
       console.log(e);
@@ -19,30 +21,30 @@ const Login = () => {
   return (
     <React.Fragment>
       <form onSubmit={submit}>
-        <div class="mb-3">
-          <label for="email" class="form-label">
+        <div className="mb-3">
+          <label htmlFor="email" className="form-label">
             Email address
           </label>
           <input
             type="email"
-            class="form-control"
+            className="form-control"
             id="email"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
           />
         </div>
-        <div class="mb-3">
-          <label for="password" class="form-label">
+        <div className="mb-3">
+          <label htmlFor="password" className="form-label">
             Password
           </label>
           <input
             type="password"
-            class="form-control"
+            className="form-control"
             id="password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}
           />
-          <button type="submit" class="btn btn-primary">
+          <button type="submit" className="btn btn-primary">
             Login
           </button>
         </div>

@@ -16,54 +16,54 @@ const Registration = () => {
   return (
     <div>
       <form onSubmit={submit}>
-        <div class="mb-3">
-          <label for="email" class="form-label">
+        <div className="mb-3">
+          <label htmlFor="email" className="form-label">
             Email address
           </label>
           <input
             type="email"
-            class="form-control"
+            className="form-control"
             id="email"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
           />
         </div>
-        <div class="mb-3">
-          <label for="firstName" class="form-label">
+        <div className="mb-3">
+          <label htmlFor="firstName" className="form-label">
             First Name
           </label>
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             id="firstName"
             value={firstName}
             onChange={(event) => setFirstName(event.target.value)}
           />
         </div>
-        <div class="mb-3">
-          <label for="lastName" class="form-label">
+        <div className="mb-3">
+          <label htmlFor="lastName" className="form-label">
             last Name
           </label>
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             id="lastName"
             value={lastName}
             onChange={(event) => setLastName(event.target.value)}
           />
         </div>
-        <div class="mb-3">
-          <label for="password" class="form-label">
+        <div className="mb-3">
+          <label htmlFor="password" className="form-label">
             Password
           </label>
           <input
             type="password"
-            class="form-control"
+            className="form-control"
             id="password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}
           />
-          <button type="submit" class="btn btn-primary">
+          <button type="submit" className="btn btn-primary">
             Register
           </button>
         </div>

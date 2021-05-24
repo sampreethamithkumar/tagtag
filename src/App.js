@@ -20,7 +20,7 @@ import Logout from "./components/Logout/Logout";
 import SearchImage from "./components/SearchImage/SearchImage";
 import AddTag from "./components/AddTag/AddTag";
 import DeleteImage from "./components/DeleteImage/DeleteImage";
-// import { withAuthenticator } from "@aws-amplify/ui-react";
+import NotFound from "./components/NotFound/NotFound";
 
 Amplify.configure(awsmobile);
 function App() {
@@ -33,7 +33,6 @@ function App() {
       })
       .catch((e) => {
         setCurrentUser({});
-        console.log("Error Occured", e);
       });
   }, []);
 
@@ -50,6 +49,7 @@ function App() {
               <Route path="/addtag" component={AddTag} />
               <Route path="/deleteimage" component={DeleteImage} />
               <Route path="/logout" component={Logout} />
+              <Route path="/not-found" component={NotFound} />
               <Redirect from="/" exact to="/home" />
               <Redirect to="/home" />
             </Switch>
@@ -59,6 +59,7 @@ function App() {
               <Route path="/login" component={Login} />
               <Route path="/register" component={Registration} />
               <Route path="/logout" component={Logout} />
+              <Route path="/not-found" component={NotFound} />
               <Redirect from="/" exact to="/login" />
               <Redirect to="/login" />
             </Switch>
