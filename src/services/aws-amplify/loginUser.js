@@ -19,4 +19,12 @@ function signInUser(email, password) {
   return Auth.signIn(email, password);
 }
 
+function facebookLogin(){
+  return Auth.federatedSignIn({provider : 'Facebook'});
+}
+
+function googleLogIn(){
+  return Auth.federatedSignIn({provider : 'Google'});
+}
+
 export default signInUser;
