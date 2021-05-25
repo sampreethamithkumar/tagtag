@@ -27,14 +27,44 @@ function App() {
   const [currentUser, setCurrentUser] = useState({});
 
   useEffect(() => {
-    Auth.currentAuthenticatedUser()
+    console.log(Auth.currentAuthenticatedUser());
+    Auth.currentAuthenticatedUser().then(user => setCurrentUser(user));
+    /*
+    Auth.currentAuthenticatedUser({
+      bypassCache: true
+    })
       .then(({ attributes }) => {
+        console.log('Attributes: '+attributes);
         setCurrentUser(attributes);
       })
       .catch((e) => {
         setCurrentUser({});
       });
+      */
+      
   }, []);
+  
+  /*
+  Auth.currentSession()
+  .then(data => {
+      let idToken = data.getIdToken(); 
+      let email = idToken.payload.email;
+      //console.log(email);
+      console.log(Auth.currentAuthenticatedUser());
+      Auth.currentAuthenticatedUser({
+        bypassCache: true
+      })
+      .then(({attributes} )=> {
+        console.log(attributes);
+        setCurrentUser(attributes)
+
+      })
+      .catch((e) => {
+        setCurrentUser({});
+      });
+  })
+}, []);
+*/
 
   return (
     <React.Fragment>

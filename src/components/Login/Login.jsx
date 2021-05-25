@@ -12,8 +12,8 @@ Amplify.configure({
       userPoolWebClientId: '2maldi56k71nm4tcqm6tg7tnoa',
       oauth: {
         domain: 'tagtagsystem.auth.us-east-1.amazoncognito.com',
-        redirectSignIn: 'http://localhost:3000',
-        redirectSignOut: 'http://localhost:3000',
+        redirectSignIn: 'http://localhost:3000/',
+        redirectSignOut: 'http://localhost:3000/',
         responseType: 'token'
 
       }
@@ -40,6 +40,7 @@ const Login = () => {
     event.preventDefault();
     try {
       const response = await Auth.federatedSignIn({provider : 'Google'});
+      console.log('Google Response: '+response);
       const { jwtToken } = response.signInUserSession.idToken;
       localStorage.setItem("accessToken", jwtToken);
       window.location = "/home";
@@ -54,6 +55,7 @@ const Login = () => {
     event.preventDefault();
     try {
       const response = await Auth.federatedSignIn({provider : 'Facebook'});
+      console.log('Facebook Response: ' + response);
       const { jwtToken } = response.signInUserSession.idToken;
       localStorage.setItem("accessToken", jwtToken);
       window.location = "/home";
