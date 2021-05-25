@@ -27,8 +27,18 @@ function App() {
   const [currentUser, setCurrentUser] = useState({});
 
   useEffect(() => {
-    console.log(Auth.currentAuthenticatedUser());
     Auth.currentAuthenticatedUser().then(user => setCurrentUser(user));
+    console.log(Auth.currentAuthenticatedUser());
+    console.log(localStorage.getItem("accessToken"));
+    if (localStorage.getItem("access_token") == null && currentUser != null)
+    {
+      if (currentUser.signInUserSession != null)
+      {
+        console.log(currentUser.signInUserSession.idToken);
+        localStorage.setItem("accessToken", currentUser.signInUserSession.idToken);
+      }
+      
+    }
     /*
     Auth.currentAuthenticatedUser({
       bypassCache: true

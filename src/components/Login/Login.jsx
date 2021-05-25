@@ -40,7 +40,6 @@ const Login = () => {
     event.preventDefault();
     try {
       const response = await Auth.federatedSignIn({provider : 'Google'});
-      console.log('Google Response: '+response);
       const { jwtToken } = response.signInUserSession.idToken;
       localStorage.setItem("accessToken", jwtToken);
       window.location = "/home";
