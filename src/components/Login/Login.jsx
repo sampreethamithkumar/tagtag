@@ -28,6 +28,7 @@ const Login = () => {
     event.preventDefault();
     try {
       const response = await signInUser(email, password);
+      console.log('Response: ' + response);
       const { jwtToken } = response.signInUserSession.idToken;
       localStorage.setItem("accessToken", jwtToken);
       window.location = "/home";
