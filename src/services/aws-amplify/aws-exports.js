@@ -1,10 +1,10 @@
 const awsmobile = {
   Auth: {
-    identityPoolId: "us-east-1:4e0aa95d-a669-4283-b32a-c808fe8d7f37",
+    identityPoolId: "us-east-1:9b78a14e-947f-4f7e-a42f-cd0c1ed4175d",
     region: "us-east-1",
     identityPoolRegion: "us-east-1",
-    userPoolId: "us-east-1_BYkjtcrS7",
-    userPoolWebClientId: "2maldi56k71nm4tcqm6tg7tnoa",
+    userPoolId: "us-east-1_9murdLpC4",
+    userPoolWebClientId: "6ap3ivpv9qvv7l4vrqnkadmeju",
   },
 };
 
