@@ -4,7 +4,6 @@ const apiEndPoint =
   "https://vt1c6as3q8.execute-api.us-east-1.amazonaws.com/prod/tagtag/search";
 
 const token = localStorage.getItem("accessToken");
-console.log("Token: " + token);
 
 function getImageURLByTag(tag1, tag2, tag3, tag4) {
   const params = {};

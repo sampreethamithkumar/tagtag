@@ -5,12 +5,11 @@ import { updateTag } from "../../services/addTag";
 const AddTag = () => {
   const [url, seturl] = useState("");
   const [tag, setTag] = useState("");
-  const [arrayTag, setArrayTag] = useState([]);
 
   const submit = async (event) => {
     event.preventDefault();
-    setArrayTag(tag.split(";"));
-    updateTag(url, arrayTag)
+    const splitArray = tag.split(";");
+    updateTag(url, splitArray)
       .then(() => toast.success("Tag Added"))
       .catch((e) => toast.error(e));
   };
