@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const apiEndPoint =
-  "https://dc7wcopoi1.execute-api.us-east-1.amazonaws.com/prod/tagtag";
+  "https://vt1c6as3q8.execute-api.us-east-1.amazonaws.com/prod/tagtag";
 
 const token = localStorage.getItem("accessToken");
 
