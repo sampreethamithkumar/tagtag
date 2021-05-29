@@ -21,6 +21,7 @@ import SearchImage from "./components/SearchImage/SearchImage";
 import AddTag from "./components/AddTag/AddTag";
 import DeleteImage from "./components/DeleteImage/DeleteImage";
 import NotFound from "./components/NotFound/NotFound";
+import QuerySimilarImages from "./components/QuerySimilarImages/QuerySimilarImages";
 
 Amplify.configure(awsmobile);
 function App() {
@@ -28,15 +29,16 @@ function App() {
   const [currentSession, setCurrentSession] = useState({});
 
   useEffect(() => {
-    Auth.currentAuthenticatedUser().then(user => setCurrentUser(user));
-    if (localStorage.getItem("access_token") == null && currentUser != null)
-    {
-      if (currentUser.signInUserSession != null)
-      {
-        Auth.currentSession().then(session => localStorage.setItem("accessToken", session.getIdToken().getJwtToken()));
-        
+    Auth.currentAuthenticatedUser().then((user) => setCurrentUser(user));
+    if (localStorage.getItem("access_token") == null && currentUser != null) {
+      if (currentUser.signInUserSession != null) {
+        Auth.currentSession().then((session) =>
+          localStorage.setItem(
+            "accessToken",
+            session.getIdToken().getJwtToken()
+          )
+        );
       }
-      
     }
     /*
     Auth.currentAuthenticatedUser({
@@ -50,9 +52,8 @@ function App() {
         setCurrentUser({});
       });
       */
-      
   }, []);
-  
+
   /*
   Auth.currentSession()
   .then(data => {
@@ -87,6 +88,7 @@ function App() {
               <Route path="/search" component={SearchImage} />
               <Route path="/addtag" component={AddTag} />
               <Route path="/deleteimage" component={DeleteImage} />
+              <Route path="/similarimage" component={QuerySimilarImages} />
               <Route path="/logout" component={Logout} />
               <Route path="/not-found" component={NotFound} />
               <Redirect from="/" exact to="/home" />

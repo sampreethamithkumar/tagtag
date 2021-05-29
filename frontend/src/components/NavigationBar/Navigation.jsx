@@ -26,6 +26,9 @@ function Navigation() {
                 <LinkContainer to="/deleteimage">
                   <Nav.Link>Delete Image</Nav.Link>
                 </LinkContainer>
+                <LinkContainer to="/similarimage">
+                  <Nav.Link>Similar Images</Nav.Link>
+                </LinkContainer>
               </Nav>
               <Nav className="ml-auto">
                 <LinkContainer to="/logout">
