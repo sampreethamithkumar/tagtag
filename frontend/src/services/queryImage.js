@@ -12,11 +12,9 @@ function getImageURLByTag(tag1, tag2, tag3, tag4) {
   if (tag3 !== "") params["tag3"] = tag3;
   if (tag4 !== "") params["tag4"] = tag4;
 
-  const config = {
-    headers: { Authorization: `Bearer ${token}` },
-  };
+  const headers = { Authorization: `Bearer ${token}` };
 
-  return axios.get(apiEndPoint, params, config);
+  return axios.get(apiEndPoint, { params, headers });
 }
 
 function getImages() {
