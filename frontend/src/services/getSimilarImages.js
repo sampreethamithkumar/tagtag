@@ -13,5 +13,5 @@ export async function getSimilarImages(image) {
     },
   };
 
-  return await axios.post(apiEndPoint, { imageBody: image }, config);
+  return await axios.post(apiEndPoint, { image }, config);
 }

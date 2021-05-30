@@ -7,20 +7,30 @@ const QuerySimilarImages = () => {
   const [base64URL, setbase64URL] = useState("");
   const [objects, setobjects] = useState(undefined);
 
-  const imageAttached = async () => {
-    try {
-      const objects = await getSimilarImages(base64URL);
-      setobjects(objects);
-    } catch (ex) {
-      console.log("Exception Occured:", ex);
-    }
-  };
+  // const imageAttached = async () => {
+  //   try {
+  //     const objects = await getSimilarImages(base64URL);
+  //     console.log("base64:", base64URL);
+  //     console.log(objects);
+  //     setobjects(objects);
+  //   } catch (ex) {
+  //     console.log("Exception Occured:", ex);
+  //   }
+  // };
 
-  const getFiles = (files) => {
+  const getFiles = async (files) => {
     const base64Data = files[0].base64.split(",");
     setfiles(files);
-    setbase64URL(base64Data[1]);
-    imageAttached();
+    // setbase64URL(base64Data[1]);
+    // console.log(base)
+    // imageAttached();
+    console.log(base64Data[1]);
+    try {
+      const object = await getSimilarImages(base64Data[1]);
+      console.log(object);
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   return (
@@ -42,7 +52,7 @@ const QuerySimilarImages = () => {
         <img src="" />
       </div>
 
-      {objects !== undefined && objects.data.object !== null ? (
+      {/* {objects !== undefined && objects.data.object !== null ? (
         <div className="pre-container1">
           <ul>
             {objects.data.object.map((object) => (
@@ -58,7 +68,7 @@ const QuerySimilarImages = () => {
         <div>
           <p>No Objects Detected, Please try another image.</p>
         </div>
-      ) : null}
+      ) : null} */}
     </div>
   );
 };
