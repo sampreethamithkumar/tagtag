@@ -8,7 +8,7 @@ const QuerySimilarImages = () => {
   const getFiles = async (files) => {
     const base64Data = files[0].base64.split(",");
     setfiles(files);
-    // console.log(base64Data[1]);
+    console.log(base64Data[1]);
     try {
       const object = await getSimilarImages(base64Data[1]);
       console.log(object);
