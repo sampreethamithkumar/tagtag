@@ -4,27 +4,11 @@ import { getSimilarImages } from "../../services/getSimilarImages";
 
 const QuerySimilarImages = () => {
   const [files, setfiles] = useState([]);
-  const [base64URL, setbase64URL] = useState("");
-  const [objects, setobjects] = useState(undefined);
-
-  // const imageAttached = async () => {
-  //   try {
-  //     const objects = await getSimilarImages(base64URL);
-  //     console.log("base64:", base64URL);
-  //     console.log(objects);
-  //     setobjects(objects);
-  //   } catch (ex) {
-  //     console.log("Exception Occured:", ex);
-  //   }
-  // };
 
   const getFiles = async (files) => {
     const base64Data = files[0].base64.split(",");
     setfiles(files);
-    // setbase64URL(base64Data[1]);
-    // console.log(base)
-    // imageAttached();
-    console.log(base64Data[1]);
+    // console.log(base64Data[1]);
     try {
       const object = await getSimilarImages(base64Data[1]);
       console.log(object);
@@ -43,7 +27,7 @@ const QuerySimilarImages = () => {
           Attach Image
         </label>
       </div>
-      {base64URL !== "" && objects === undefined ? <p>Loading...</p> : null}
+      {/* {base64URL !== "" && objects === undefined ? <p>Loading...</p> : null} */}
 
       <div className="center">
         {files.map((file, i) => {
