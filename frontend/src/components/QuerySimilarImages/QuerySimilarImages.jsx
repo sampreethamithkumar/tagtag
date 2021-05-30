@@ -4,14 +4,17 @@ import { getSimilarImages } from "../../services/getSimilarImages";
 
 const QuerySimilarImages = () => {
   const [files, setfiles] = useState([]);
+  const [imageurl, setimageurl] = useState("");
 
   const getFiles = async (files) => {
     const base64Data = files[0].base64.split(",");
     setfiles(files);
-    console.log(base64Data[1]);
+    // console.log(base64Data[1]);
     try {
       const object = await getSimilarImages(base64Data[1]);
-      console.log(object);
+      console.log(object.data);
+      setimageurl(object.data);
+      // setimageurl(data);
     } catch (e) {
       console.log(e);
     }
@@ -27,7 +30,6 @@ const QuerySimilarImages = () => {
           Attach Image
         </label>
       </div>
-      {/* {base64URL !== "" && objects === undefined ? <p>Loading...</p> : null} */}
 
       <div className="center">
         {files.map((file, i) => {
@@ -36,23 +38,7 @@ const QuerySimilarImages = () => {
         <img src="" />
       </div>
 
-      {/* {objects !== undefined && objects.data.object !== null ? (
-        <div className="pre-container1">
-          <ul>
-            {objects.data.object.map((object) => (
-              <li>
-                Detected: {object.label} | Accuracy {object.accuracy}
-              </li>
-            ))}{" "}
-          </ul>
-        </div>
-      ) : null}
-
-      {objects !== undefined && objects.data.object === null ? (
-        <div>
-          <p>No Objects Detected, Please try another image.</p>
-        </div>
-      ) : null} */}
+      {imageurl !== "" && <div>{imageurl}</div>}
     </div>
   );
 };
